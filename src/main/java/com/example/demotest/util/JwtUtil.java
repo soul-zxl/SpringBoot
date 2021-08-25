@@ -110,10 +110,10 @@ public class JwtUtil {
             Algorithm algorithm = Algorithm.HMAC256(SECRET);
             com.auth0.jwt.interfaces.JWTVerifier verifier = JWT.require(algorithm).build();
             verifier.verify(token);
-            return false;
+            return true;
         } catch (Exception e) {
             log.error("验证token Error", e);
-            return true;
+            return false;
         }
     }
 }
