@@ -1,13 +1,12 @@
 package com.example.demotest.config;
 import com.alibaba.druid.util.StringUtils;
-import com.alibaba.fastjson.JSON;
 import com.example.demotest.util.JwtUtil;
 import com.example.demotest.util.MessageUtils;
 import com.example.demotest.util.RedisUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import javax.servlet.http.HttpServletRequest;
+
 
 
 /**
@@ -19,28 +18,25 @@ public class JwtTokenInterceptorConfig {
     @Autowired
     RedisUtil redisUtil;
 
-    public Boolean verifyToken(HttpServletRequest request) throws Exception {
-        //需要转换成String类型
-        String token = JSON.toJSONString(request.getHeader("Authorization"));
+    public Boolean verifyToken(String token) throws Exception {
+        //todo  不足点，需要验证是否是当前用户，不能通过token解析获取用户名
+        String[] strs = token.split(" ");
+        token = strs[1];
         //校验token是否完整
         boolean verify = JwtUtil.verify(token);
         //解析token,并获取key
         String name = JwtUtil.verifyToken(token);
-        log.info(name);
+        //log.info(name);
         String redisToken = (String) redisUtil.get(name);
         if (verify == true) {
             if (StringUtils.isEmpty(token)) {
                 throw new Exception(MessageUtils.message("token为空"));
-            }
-            if (verify) {
+            }else {
                 if (StringUtils.equals(token, redisToken)) {
                     return false;
                 } else {
                     return true;
                 }
-
-            } else {
-                return false;
 
             }
         } else {

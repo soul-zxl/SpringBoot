@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements Serializable {
 
 
   private Integer id;

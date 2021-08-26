@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +38,7 @@ public class JwtUtil {
      * 过期时间 单位(秒)
      * */
 
-    private static final long EXPIRATION = 3600L;
+    private static final long EXPIRATION = 3600L*1000;
 
 
     //生成一个token
@@ -53,26 +55,25 @@ public class JwtUtil {
                 ////设置 载荷 签名是有谁生成 例如 服务器
                 .withIssuer("SERVICE")
                 ///设置 载荷 签名的主题
-                .withSubject("")
+                .withSubject("签发token")
                 //设置 载荷 签名的观众 也可以理解谁接受签名的
-                .withAudience("??????")
+                .withAudience("用户")
                 //可以将基本信息放到claims中
                 .withClaim("username", user.getName())
                 .withClaim("password", user.getPass())
-                // 超时设置,设置过期的日期
-                .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION * 1000))
                 // 签发时间
-                .withIssuedAt(new Date())
+                .withIssuedAt(new Date(System.currentTimeMillis()))
+                // 超时设置,设置过期的时间
+                .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION))
                 // SECRET加密
                 .sign(Algorithm.HMAC256(SECRET));
         log.info("当前的token值：" + token);
-        //redisUtil.set(user.getName(), JwtUtil.createToken(user));
         return token;
     }
 
 
     //解析token
-    public static String  verifyToken(String token) {
+    public static String verifyToken(String token) throws Exception {
 
         //构建密钥信息
         Algorithm algorithm = Algorithm.HMAC256(SECRET);
@@ -80,7 +81,7 @@ public class JwtUtil {
         JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer("SERVICE")
                 .build();
-
+        //验证token
         DecodedJWT jwt = verifier.verify(token);
         String subject = jwt.getSubject();
         List<String> audience = jwt.getAudience();
@@ -89,7 +90,6 @@ public class JwtUtil {
         for (Map.Entry<String, Claim> entry : claims.entrySet()) {
             String key = entry.getKey();
             Claim claim = entry.getValue();
-            System.out.println("key:" + key + " value:" + claim.asString());
         }
         //获取claims中的内容
         Claim username = claims.get("username");
@@ -99,6 +99,15 @@ public class JwtUtil {
         log.info(password);
         log.info(subject);
         log.info(audience.get(0));
+        //token过期时间
+        log.info("token过期时间"+jwt.getExpiresAt());
+        //获取过期时间
+        long expiresTiem = jwt.getExpiresAt().getTime();
+        long nowTme = System.currentTimeMillis();
+        if (expiresTiem < nowTme) {
+            log.error("token过期");
+            throw new Exception("token过期");
+        }
 
         return name;
     }
