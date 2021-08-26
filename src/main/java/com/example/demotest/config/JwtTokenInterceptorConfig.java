@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
-
 /**
  * @author Administrator
  */
@@ -19,7 +18,6 @@ public class JwtTokenInterceptorConfig {
     RedisUtil redisUtil;
 
     public Boolean verifyToken(String token) throws Exception {
-        //todo  不足点，需要验证是否是当前用户，不能通过token解析获取用户名
         String[] strs = token.split(" ");
         token = strs[1];
         //校验token是否完整
@@ -37,7 +35,6 @@ public class JwtTokenInterceptorConfig {
                 } else {
                     return true;
                 }
-
             }
         } else {
             return false;

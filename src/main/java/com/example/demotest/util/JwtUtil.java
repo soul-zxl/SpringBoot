@@ -106,7 +106,7 @@ public class JwtUtil {
         long nowTme = System.currentTimeMillis();
         if (expiresTiem < nowTme) {
             log.error("token过期");
-            throw new Exception("token过期");
+            throw new IllegalArgumentException("token过期");
         }
 
         return name;
