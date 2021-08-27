@@ -11,12 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AutoConfig {
     public static void main(String[] args) {
-
-
-
 //       成绩代码生成器
         AutoGenerator autoGenerator=new AutoGenerator();
-
 //       1 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
@@ -38,10 +34,7 @@ public class AutoConfig {
         packageConfig.setService("service");
         packageConfig.setParent("com.example.demotest");
         autoGenerator.setPackageInfo(packageConfig);
-
         autoGenerator.execute();
-
-
     }
 
 
