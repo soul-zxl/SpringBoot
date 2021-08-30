@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 public class JwtTokenInterceptorConfig {
-    @Autowired
     RedisUtil redisUtil;
 
     public Boolean verifyToken(String token) throws Exception {
