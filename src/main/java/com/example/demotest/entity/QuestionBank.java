@@ -1,7 +1,5 @@
 package com.example.demotest.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.demotest.service.Question;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,7 +10,7 @@ import lombok.experimental.Accessors;
  * @author zxl
  * @date 2021/8/30
  */
-// todo redis先查redis没有在查sql,更新、删除、新增
+
 @Data
 @Accessors(chain = true)
 @TableName(value = "ssyy_biz_question_bank")
@@ -41,7 +39,7 @@ public class QuestionBank {
     //@TableField(ypeHandler = ArrayTypeHandler.class)
     private String[] answer;
 
-
-
+    @ApiModelProperty(value = "阅读量")
+    private String readNum;
 
 }
