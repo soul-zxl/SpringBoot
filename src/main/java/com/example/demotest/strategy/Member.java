@@ -6,7 +6,7 @@ package com.example.demotest.strategy;
  *
  */
 
-public interface member {
+public interface Member {
     public double differentBrackets(double price);
 
 }

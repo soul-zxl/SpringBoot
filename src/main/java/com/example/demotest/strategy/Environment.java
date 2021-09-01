@@ -4,15 +4,15 @@ package com.example.demotest.strategy;
  * @author Administrator
  */
 public class Environment {
-    private medium medium;
+    private Member member;
 
-    public Environment(medium medium) {
-        this.medium = medium;
+    public Environment(Member member) {
+        this.member = member;
     }
 
-    public void setMedium(medium medium){
-        this.medium = medium;
-    }
+//public void setMedium(medium medium){
+    //    this.medium = medium;
+    //}
 
 
     /**
@@ -20,7 +20,7 @@ public class Environment {
      */
 
     public double quote(double booksPrice) {
-        return this.medium.differentBrackets(booksPrice);
+        return this.quote(booksPrice);
 
     }
 }

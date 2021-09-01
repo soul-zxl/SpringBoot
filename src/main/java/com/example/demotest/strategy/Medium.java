@@ -1,11 +1,11 @@
 package com.example.demotest.strategy;
 
 /**
- * 初级
+ * 中级
  */
-public class primary implements member{
+public class Medium implements Member {
     @Override
     public double differentBrackets(double price) {
-        return price;
+        return price*0.9;
     }
 }
