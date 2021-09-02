@@ -2,9 +2,6 @@ package com.example.demotest.Basis.thread;
 
 import lombok.SneakyThrows;
 
-/**
- * @author zxl
- */
 public class StartRunable implements Runnable {
 
    private Boolean flag=true;

@@ -17,7 +17,7 @@ public class AutoConfig {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath+"/src/main/java");
-        gc.setAuthor("狂神说");
+        gc.setAuthor("zxl");
         gc.setOpen(false);
         gc.setFileOverride(false); // 是否覆盖
         gc.setServiceName("%sService"); // 去Service的I前缀

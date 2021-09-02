@@ -4,14 +4,20 @@ import com.example.demotest.util.JwtUtil;
 import com.example.demotest.util.MessageUtils;
 import com.example.demotest.util.RedisUtil;
 import lombok.extern.log4j.Log4j2;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 
 /**
- * @author Administrator
+ * @ClassName: JwtTokenInterceptorConfig       请求接口token校验
+ * @Description:
+ * @Author: Administrator
+ * @Date: 2021/9/2 17:32
  */
 @Log4j2
 @Component
+@Aspect
 public class JwtTokenInterceptorConfig {
     RedisUtil redisUtil;
 
