@@ -1,5 +1,4 @@
-package com.example.demotest;
-
+package com.example.demotest.Basis.thread;
 import com.example.demotest.Basis.thread.StartRunable;
 import com.example.demotest.Basis.thread.StartThread;
 import org.junit.jupiter.api.Test;
