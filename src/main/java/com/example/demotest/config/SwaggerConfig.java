@@ -43,7 +43,6 @@ public class SwaggerConfig {
                         .licenseUrl("http://www.baidu.com")
                         .build());
 
-
     }
 
 

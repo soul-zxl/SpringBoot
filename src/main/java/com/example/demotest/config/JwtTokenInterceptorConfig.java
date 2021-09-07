@@ -5,7 +5,6 @@ import com.example.demotest.util.MessageUtils;
 import com.example.demotest.util.RedisUtil;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 

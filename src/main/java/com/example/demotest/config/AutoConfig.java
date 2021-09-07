@@ -8,7 +8,6 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
-
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.springframework.context.annotation.Configuration;
 
@@ -41,19 +40,17 @@ public class AutoConfig {
         packageConfig.setParent("com.example.demotest");
         autoGenerator.setPackageInfo(packageConfig);
 
-
         //4、策略配置
         StrategyConfig strategy = new StrategyConfig();
         //strategy.setInclude("blog_tags","course","links","sys_settings","user_record"," user_say");
-                // 设置要映射的表名
+        // 设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true); // 自动lombok；
         strategy.setLogicDeleteFieldName("deleted");
         // 自动填充配置
         TableFill gmtCreate = new TableFill("gmt_create", FieldFill.INSERT);
-        TableFill gmtModified = new TableFill("gmt_modified",
-                FieldFill.INSERT_UPDATE);
+        TableFill gmtModified = new TableFill("gmt_modified", FieldFill.INSERT_UPDATE);
         ArrayList<TableFill> tableFills = new ArrayList<>();
         tableFills.add(gmtCreate);
         tableFills.add(gmtModified);

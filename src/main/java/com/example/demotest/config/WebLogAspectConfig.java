@@ -30,7 +30,6 @@ public class WebLogAspectConfig {
 
     @Pointcut("execution(* com.example.demotest.controller..*.*(..))")
     public void webLog(){
-
     }
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
