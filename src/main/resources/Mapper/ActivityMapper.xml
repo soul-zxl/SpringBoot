@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--要与mapper保持一致-->
+<mapper namespace="com.example.demotest.mapper.ActivityMapper">
+
+    <select id="page" resultType="com.example.demotest.entity.Activity">
+        SELECT
+        A.ID,
+        A.description_chi,
+        A.address,
+        A.sign_start_date,
+        A.sign_end_date,
+        A.start_date,
+        A.end_date,
+        A.publish_status
+        FROM
+        activity A
+        <where>
+            <if test="dto.descriptionChi != null and dto.descriptionChi !=''">
+                and A.description_chi like '%'||#{dto.descriptionChi}||'%'
+            </if>
+            <if test="dto.publishStatus != null and dto.publishStatus !=''">
+                and A.publish_status like '%'||#{dto.publishStatus}||'%'
+            </if>
+
+        </where>
+
+    </select>
+
+</mapper>

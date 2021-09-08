@@ -1,6 +1,6 @@
 package com.example.demotest.service;
 
-public class Student {
+public class StudentService {
 
     public void show1(String s){
         System.out.println("调用了：公有的，String参数的show1(): s = " + s);
