@@ -1,6 +1,7 @@
 package com.example.demotest.controller;
 
 
+
 import com.example.demotest.commom.BaseDTO;
 import com.example.demotest.entity.Activity;
 import com.example.demotest.service.ActivityService;
@@ -45,4 +46,18 @@ public class ActivityController {
         this.activityService.removeById(dto.getId());
         return ResultUtil.success();
     }
+    @PostMapping("top")
+    @ApiOperation("置顶（参数只需要id）")
+    public ResponseEntity top(@RequestBody BaseDTO dto) {
+        for (int id :dto.getIds()) {
+            Activity activity=new Activity();
+            activity.setId(id);
+            activity.setTopFlag(true);
+            this.activityService.updateById(activity);
+        }
+        return ResultUtil.success();
+    }
+
+
+
 }
