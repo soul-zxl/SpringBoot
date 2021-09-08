@@ -1,7 +1,5 @@
 package com.example.demotest.Basis.reflect;
 
-import org.junit.jupiter.api.Test;
-
 import javax.sql.DataSource;
 
 
@@ -11,7 +9,6 @@ public class reflectTest {
     //DemoTestApplicationTests() throws ClassNotFoundException {
     //}
 
-    @Test
     void contextLoads() throws ClassNotFoundException {
 
         DataSource dataSource;

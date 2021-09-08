@@ -18,7 +18,7 @@ public class TestThread {
 
     }
 
-    @Test
+
     public void startRunable(){
         StartRunable startRunable = new StartRunable();
         //线程停止
@@ -41,7 +41,7 @@ public class TestThread {
         thread.start();
         thread1.start();
     }
-    @Test
+
     public void ThreadDaemon(){
         Thread threadRunable = new Thread(new StartRunable());
         StartThread thread=new StartThread();
