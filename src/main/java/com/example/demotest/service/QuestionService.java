@@ -30,7 +30,7 @@ public class QuestionService extends ServiceImpl<QuestionMapper, QuestionBank> {
      * @param id
      * @return
      */
-    public int readNum(String id) {
+    public int readNum(int id) {
         QuestionBank questionBank = new QuestionBank();
         //  判断是否存在
         Integer newNum = (Integer) redisUtil.get("newNmu" + id);
