@@ -2,7 +2,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/user?&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/test?&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -30,7 +30,7 @@ spring:
 #      useGlobalDataSourceStat: true
 #      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 server:
-  port: 8080
+  port: 8081
 mybatis-plus:
   mapper-locations: classpath:Mapper/*.xml
 #management:

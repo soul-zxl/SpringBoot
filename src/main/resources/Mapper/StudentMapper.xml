@@ -32,7 +32,6 @@
 
     </select>
 
-
     <select id="list111111"  resultType="com.example.demotest.vo.VO">
         SELECT s.`name`,b.title,b.author
    FROM user s,blog b
