@@ -1,4 +1,4 @@
-package com.example.demotest.enu.face;
+package com.example.demotest.enums.face;
 
 /**
  * @Author: HUANG GY.

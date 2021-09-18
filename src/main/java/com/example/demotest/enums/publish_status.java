@@ -1,6 +1,6 @@
-package com.example.demotest.enu;
+package com.example.demotest.enums;
 
-import com.example.demotest.enu.face.IEnum;
+import com.example.demotest.enums.face.IEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
