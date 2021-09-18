@@ -1,5 +1,6 @@
 package com.example.demotest.commom;
 
+import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -11,6 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.Date;
 
 /**
  * @author linsidi
@@ -21,9 +23,9 @@ public class BaseEntity {
     /**
      * 主键
      */
-    @TableId(value = "id",type = IdType.ID_WORKER_STR)
+    @TableId(value = "id",type = IdType.ID_WORKER)
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
+    private int id;
 
     /**
      * 创建者
@@ -37,7 +39,7 @@ public class BaseEntity {
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     @TableField(value = "created_date", fill = FieldFill.INSERT)
-    private Instant createdDate;
+    private Date createdDate;
 
     /**
      * 更新者
@@ -50,7 +52,7 @@ public class BaseEntity {
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     @TableField(value = "last_modified_date", fill = FieldFill.INSERT_UPDATE)
-    private Instant lastModifiedDate;
+    private Date lastModifiedDate;
 
     /**
      * 有效性

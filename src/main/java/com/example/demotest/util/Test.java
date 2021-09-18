@@ -1,10 +1,6 @@
 package com.example.demotest.util;
 
 //import com.example.demotest.commom.Weather;
-import com.example.demotest.commom.Weather;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @ClassName: Test
