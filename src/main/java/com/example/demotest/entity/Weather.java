@@ -1,15 +1,13 @@
 package com.example.demotest.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.example.demotest.commom.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
 
 /**
  * @ClassName: weather
@@ -20,7 +18,7 @@ import java.util.Date;
 @Data
 @Builder
 @Accessors(chain = true)
-@TableName("Weather")
+@EqualsAndHashCode(callSuper = true)
 public class Weather extends BaseEntity {
     @ApiModelProperty(value = "当前城市")
     private String city;

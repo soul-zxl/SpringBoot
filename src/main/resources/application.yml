@@ -30,7 +30,7 @@ spring:
 #      useGlobalDataSourceStat: true
 #      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 server:
-  port: 8081
+  port: 8090
 mybatis-plus:
   mapper-locations: classpath:Mapper/*.xml
 #management:

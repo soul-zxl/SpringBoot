@@ -12,6 +12,7 @@ import com.example.demotest.constant.WeatherConstant;
 import com.example.demotest.dto.CityDTO;
 import com.example.demotest.entity.Weather;
 import com.example.demotest.mapper.WeatherMapper;
+import com.example.demotest.vo.WeatherVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -27,6 +28,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -34,6 +36,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -83,7 +86,7 @@ public class WeatherService extends ServiceImpl<WeatherMapper, Weather> {
                 String wind = (String) result.get(WeatherConstant.wind);
                 log.info("风力" + wind);
                 String date = (String) result.get(WeatherConstant.nowDate);
-                log.info("风力" + wind);
+                log.info("日期" + wind);
                 Weather build = Weather.builder()
                         .weather(info)
                         .city(dto.getCity())
@@ -103,15 +106,24 @@ public class WeatherService extends ServiceImpl<WeatherMapper, Weather> {
 
     }
 
-public List<Weather> getList(CityDTO dto){
-     //getWeather(dto);
-    //QueryWrapper<Weather> wrapper = new QueryWrapper<>();
 
-    List<Weather> list = this.list;
+    @Scheduled(cron = "0 0/5 * * * ? ")
+    public void configureTasks(){
+        log.info("每五分钟定时打印一次时间"+ LocalDateTime.now());
+        List<Integer> collect =this.list.stream()
+                .map((a) -> a.getId())
+                .collect(Collectors.toList());
+        this.removeByIds(collect);
+    }
+
+
+
+public List<Weather> weatherList(CityDTO dto){
+        getWeather(dto);
+    QueryWrapper <Weather>wrapper = new QueryWrapper<>();
+    wrapper.lambda().eq(Weather::getCity,dto.getCity());
+    List<Weather> list = this.list(wrapper);
     return list;
-
 }
-
-
 
 }

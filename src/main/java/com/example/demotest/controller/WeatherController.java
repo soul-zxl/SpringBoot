@@ -1,5 +1,6 @@
 package com.example.demotest.controller;
 
+import com.example.demotest.config.SaticScheduleTaskConfig;
 import com.example.demotest.dto.CityDTO;
 import com.example.demotest.entity.Weather;
 import com.example.demotest.service.WeatherService;
@@ -27,7 +28,7 @@ public class WeatherController {
     @PostMapping("/get")
     @ApiOperation(value = "",tags = "")
     public ResponseEntity<List<Weather>> weather(@RequestBody CityDTO dto){
-        List<Weather> list = weatherService.getList(dto);
+        List<Weather> list = weatherService.weatherList(dto);
         return ResultUtil.success("",list);
 
     }

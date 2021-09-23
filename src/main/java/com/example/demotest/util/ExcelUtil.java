@@ -34,8 +34,9 @@ public class ExcelUtil {
 
     private static void defaultExport(List<?> list, Class<?> pojoClass, String fileName, HttpServletResponse response, ExportParams exportParams) {
         Workbook workbook = ExcelExportUtil.exportExcel(exportParams,pojoClass,list);
-        if (workbook != null);
-        downLoadExcel(fileName, response, workbook);
+        if (workbook != null) {
+            downLoadExcel(fileName, response, workbook);
+        }
     }
 
     private static void downLoadExcel(String fileName, HttpServletResponse response, Workbook workbook) {
