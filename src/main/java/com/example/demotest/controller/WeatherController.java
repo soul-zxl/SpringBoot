@@ -1,6 +1,6 @@
 package com.example.demotest.controller;
 
-import com.example.demotest.config.SaticScheduleTaskConfig;
+
 import com.example.demotest.dto.CityDTO;
 import com.example.demotest.entity.Weather;
 import com.example.demotest.service.WeatherService;

@@ -23,8 +23,8 @@ public class BaseEntity {
     /**
      * 主键
      */
-    @TableId(value = "id",type = IdType.ID_WORKER)
-    @JsonSerialize(using = ToStringSerializer.class)
+    @TableId(value = "id",type = IdType.ASSIGN_UUID)
+    //@JsonSerialize(using = ToStringSerializer.class)
     private int id;
 
     /**
@@ -32,26 +32,26 @@ public class BaseEntity {
      */
 
     @TableField(value = "created_by", fill = FieldFill.INSERT)
-    private String createdBy;
+    private DateTime createdBy;
 
     /**
      * 创建时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     @TableField(value = "created_date", fill = FieldFill.INSERT)
     private Date createdDate;
 
     /**
      * 更新者
      */
-    @TableField(value = "last_modified_by",fill = FieldFill.INSERT_UPDATE)
+    //@TableField(value = "last_modified_by",fill = FieldFill.INSERT_UPDATE)
     private String lastModifiedBy;
 
     /**
-     * 创建时间
+     * 更新时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
-    @TableField(value = "last_modified_date", fill = FieldFill.INSERT_UPDATE)
+    //@TableField(value = "last_modified_date", fill = FieldFill.INSERT_UPDATE)
     private Date lastModifiedDate;
 
     /**
