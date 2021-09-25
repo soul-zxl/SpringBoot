@@ -2,10 +2,12 @@ package com.example.demotest.controller;
 
 import cn.hutool.core.lang.Assert;
 import com.example.demotest.service.FileUploadService;
+import com.example.demotest.util.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.models.Model;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,27 +37,11 @@ public class UploadController {
 
 
     @GetMapping(value = "/upload")
-    public String fileUpload(@RequestParam("file") MultipartFile file)  {
-        //Assert.isNull(file.isEmpty(),"NULL");
-        //获取上传文件名
-        String fileName = file.getOriginalFilename();
-        //获取后缀名
-        String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        //存放路径
-        String filePath = "C:\\Users\\Administrator\\Desktop\\jpg\\";
-        //在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的
-        //获取新的文件名
-        String name = UUID.randomUUID() + suffixName;
-        //创建文件+路径
-        File dost = new File(filePath+name);
+    public ResponseEntity fileUpload(@RequestParam("file") MultipartFile file) {
+     fileUploadService.upload(file,true);
 
-        try {
-            file.transferTo(dost);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        log.info("类型吗？？？"+file.getContentType());
-        return "index";
+       return ResultUtil.success("");
     }
+
 
 }

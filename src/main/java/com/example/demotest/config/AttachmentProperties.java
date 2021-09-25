@@ -15,13 +15,13 @@ import java.util.List;
 @Component
 @Data
 public class AttachmentProperties {
-
+//本地地址
     private String location;
-
+//线上路径
     private String domain;
-
+//上传格式
     private String allowFormat;
-
+//最大容量
     private int maxSize;
 
     public List<String> getAllowFormat() {

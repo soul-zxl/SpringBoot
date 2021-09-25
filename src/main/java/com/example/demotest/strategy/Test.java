@@ -2,6 +2,7 @@ package com.example.demotest.strategy;
 
 
 
+import com.baomidou.mybatisplus.generator.AutoGenerator;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.UnsupportedEncodingException;
@@ -30,10 +31,14 @@ public class Test {
         //LocalDate now = LocalDate.now();
         //System.out.println("月份"+now.getMonth().getValue());
 
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(now);
-        LocalDate now1 = LocalDate.now();
-        System.out.println(now1);
+//        LocalDateTime now = LocalDateTime.now();
+//        System.out.println(now);
+//        LocalDate now1 = LocalDate.now();
+//        System.out.println(now1);
+
+
+        AutoGenerator mpg = new AutoGenerator();
+
 
     }
 

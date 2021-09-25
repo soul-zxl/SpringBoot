@@ -7,7 +7,8 @@ package com.example.demotest.service;
  * @Date: 2021/9/17 15:22
  */
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.demotest.constant.WeatherConstant;
 import com.example.demotest.dto.CityDTO;
 import com.example.demotest.entity.Weather;
@@ -108,10 +109,14 @@ public class WeatherService extends ServiceImpl<WeatherMapper, Weather> {
 
 
 public List<Weather> weatherList(CityDTO dto){
-        getWeather(dto);
-    QueryWrapper <Weather>wrapper = new QueryWrapper<>();
-    wrapper.lambda().eq(Weather::getCity,dto.getCity());
-    List<Weather> list = this.list(wrapper);
+     getWeather(dto);
+    LambdaQueryWrapper<Weather> query= Wrappers.lambdaQuery();
+    query.eq(Weather::getCity,dto.getCity());
+    List<Weather> list = super.list(query);
+
+//    QueryWrapper <Weather>wrapper = new QueryWrapper<>();
+//    wrapper.lambda().eq(Weather::getCity,dto.getCity());
+//    List<Weather> list = this.list(wrapper);
     return list;
 }
 

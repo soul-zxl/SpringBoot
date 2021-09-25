@@ -30,14 +30,16 @@ import java.util.UUID;
 public class FileUploadService {
 
     @Autowired
-    private AttachmentProperties properties;
+    AttachmentProperties properties;
 
     public StorageVO upload(@NonNull MultipartFile file, boolean rename) {
+//        格式大小校验
         validate(file);
+
         String dir = properties.getLocation() + datePath();
         //获取图片路径（格式）  相对路径
         String relativePath = AttachmentUtils.upload(file, dir, rename);
-        //上传路劲+图片名     绝对路径
+        //上传路径+图片名     绝对路径
         String absolutePath = properties.getDomain() + relativePath;
         StorageVO storage = new StorageVO().setRelativePath(relativePath)
                 .setAbsolutePath(absolutePath);
@@ -60,6 +62,7 @@ public class FileUploadService {
     }
 
     private static String datePath() {
+//        创建文件夹
         Date now = new Date();
         return DateFormatUtils.format(now, "yyyy/MM/dd") + "/";
     }

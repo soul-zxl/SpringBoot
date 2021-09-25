@@ -40,6 +40,6 @@ mybatis-plus:
 
 attachment:
   location: /attachment/
-    domain: http://172.20.3.19:8060${server.servlet.context-path}
-    allow-format: png,jpg,jpeg,gif   # 允许上传的格式
-    max-size: 4  # 大小限制4MB
+  domain: http://127.0.0.1:8080${server.servlet.context-path}
+  allow-format: png,jpg,jpeg,gif   # 允许上传的格式
+  max-size: 4  # 大小限制4MB
