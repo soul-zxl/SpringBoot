@@ -100,6 +100,8 @@
         </dependency>
 
 
+
+
         <!-- 引入jwt -->
         <dependency>
             <groupId>com.auth0</groupId>
@@ -107,7 +109,7 @@
             <version>3.8.2</version>
         </dependency>
 
-
+<!--redis-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -123,6 +125,15 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+
+<!--        代码生成器-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
+
 
 
         <!--redis-->

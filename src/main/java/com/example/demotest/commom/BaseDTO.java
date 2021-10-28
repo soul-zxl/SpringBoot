@@ -17,9 +17,9 @@ import java.io.Serializable;
 @ApiModel(value="BaseDTO", description="公共请求参数")
 public class BaseDTO implements Serializable {
     @ApiModelProperty(value = "主键id")
-    private int id;
+    private Long id;
     @ApiModelProperty(value = "主键id数组")
-    private int[] ids;
+    private Long[] ids;
     @ApiModelProperty(value = "文件MultipartFile",dataType = "file")
     private MultipartFile file;
     @ApiModelProperty(value = "文件MultipartFile数组",dataType = "file")
