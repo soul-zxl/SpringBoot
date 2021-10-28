@@ -10,18 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                // 关闭csrf保护功能（跨域访问）
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/*").permitAll();//访问API下无需登录认证权限
-    }
-
-
-
-
-
+    //
+    //@Override
+    //protected void configure(HttpSecurity http) throws Exception {
+    //    http
+    //            // 关闭csrf保护功能（跨域访问）
+    //            .csrf().disable()
+    //            .authorizeRequests()
+    //            .antMatchers("/*").permitAll();//访问API下无需登录认证权限
+    //}
 }
