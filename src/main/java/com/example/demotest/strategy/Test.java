@@ -1,20 +1,14 @@
 package com.example.demotest.strategy;
 
-
-
 import cn.hutool.core.date.DateTime;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.poi.ss.formula.functions.Now;
-
-import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.List;
-import java.util.stream.Collectors;
+
+
 @Log4j2
 public class Test {
       @org.junit.jupiter.api.Test
