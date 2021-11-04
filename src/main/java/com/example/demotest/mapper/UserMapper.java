@@ -10,25 +10,6 @@ import java.util.Map;
 public interface UserMapper {
 
 
-    List<User> select();
-
-    User selectById(int id);
-
-    int  insert(User user);
-
-    int update(User user);
-
-    int delete(int id);
-
-    int insert2(User user);
-
-
-    int update2(Map map);
-
-    User select3(Map map);
-
-    List<User>selectLike(String vlues);
-
 
 
 

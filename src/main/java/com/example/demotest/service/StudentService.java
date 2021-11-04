@@ -1,5 +1,8 @@
 package com.example.demotest.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class StudentService {
 
     public void show1(String s){

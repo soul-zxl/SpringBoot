@@ -15,7 +15,4 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ActiviceMapper extends BaseMapper<QuestionBank> {
 
-    public QuestionBank page(@Param("dto") QuestionBank dto);
-
-
 }
