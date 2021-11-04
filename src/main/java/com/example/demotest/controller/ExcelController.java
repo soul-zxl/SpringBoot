@@ -24,36 +24,37 @@ public class ExcelController {
     @PostMapping("export")
     @ApiOperation(value = "输入")
     public void export(HttpServletResponse response) {
-        /**
-         * Arrays.asList()不支持add,remove
-         */
-        List<User> userList = new ArrayList<>();
-          //List<User> userList = Arrays.asList();
-        User user = new User()
-                .setId(1)
-                .setName("1")
-                .setPass("123456");
-        User user1 = new User()
-                .setId(2)
-                .setName("2")
-                .setPass("zxl");
-        userList.add(user);
-        userList.add(user1);
-
-        ExcelUtil.exportExcel
-                (userList, "花名册", "草帽一伙", User.class, "用户花名册.xlsx", response);
+        //    /**
+        //     * Arrays.asList()不支持add,remove
+        //     */
+        //    List<User> userList = new ArrayList<>();
+        //      //List<User> userList = Arrays.asList();
+        //    User user = new User()
+        //            .setId(1)
+        //            .setName("1")
+        //            .setPass("123456");
+        //    User user1 = new User()
+        //            .setId(2)
+        //            .setName("2")
+        //            .setPass("zxl");
+        //    userList.add(user);
+        //    userList.add(user1);
+        //
+        //    ExcelUtil.exportExcel
+        //            (userList, "花名册", "草帽一伙", User.class, "用户花名册.xlsx", response);
+        //
+        //}
+        //
+        //
+        //@PostMapping("importExcel")
+        //@ApiOperation(value = "输出")
+        //public void importExcel() {
+        //    String filePath = "C:\\Users\\Administrator\\Desktop\\用户花名册.xlsx";
+        //    //解析excel，
+        //    List<User> userList = ExcelUtil.importExcel(filePath, 1, 1, User.class);
+        //    //也可以使用MultipartFile,使用 FileUtil.importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Class<T> pojoClass)导入
+        //    System.out.println("导入数据一共【" + userList.size() + "】行");
+        //}
 
     }
-
-
-    @PostMapping("importExcel")
-    @ApiOperation(value = "输出")
-    public void importExcel() {
-        String filePath = "C:\\Users\\Administrator\\Desktop\\用户花名册.xlsx";
-        //解析excel，
-        List<User> userList = ExcelUtil.importExcel(filePath, 1, 1, User.class);
-        //也可以使用MultipartFile,使用 FileUtil.importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Class<T> pojoClass)导入
-        System.out.println("导入数据一共【" + userList.size() + "】行");
-    }
-
 }

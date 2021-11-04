@@ -59,8 +59,8 @@ public class JwtUtil {
                 //设置 载荷 签名的观众 也可以理解谁接受签名的
                 .withAudience("用户")
                 //可以将基本信息放到claims中
-                .withClaim("username", user.getName())
-                .withClaim("password", user.getPass())
+                .withClaim("username", user.getUserName())
+                .withClaim("password", user.getPassWord())
                 // 签发时间
                 .withIssuedAt(new Date(System.currentTimeMillis()))
                 // 超时设置,设置过期的时间

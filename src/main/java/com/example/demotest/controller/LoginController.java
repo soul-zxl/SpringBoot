@@ -36,9 +36,9 @@ public class LoginController {
         String token = JwtUtil.createToken(user);
         HashMap<String, Object> map = Maps.newHashMap();
         map.put("token",token);
-        user.setPass(null);
+        user.setPassWord(null);
         map.put("user",user);
-        redisUtil.set(user.getName(), token);
+        redisUtil.set(user.getUserName(), token);
         return ResultUtil.success(map);
     }
 }
