@@ -3,7 +3,7 @@ package com.example.demotest.controller;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.example.demotest.config.JwtTokenInterceptorConfig;
-import com.example.demotest.entity.User;
+import com.example.demotest.entity.UserInfo;
 import com.example.demotest.util.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -54,7 +54,7 @@ public class demoController {
             @ApiImplicitParam(name = "address", value = "用户地址", defaultValue = "深圳", required = true)
     }
     )
-    public String addUser(@RequestBody User user) {
+    public String addUser(@RequestBody UserInfo user) {
         return "ok";
     }
 

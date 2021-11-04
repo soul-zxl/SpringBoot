@@ -1,6 +1,11 @@
 package com.example.demotest.controller;
 
+import com.example.demotest.entity.UserInfo;
+import com.example.demotest.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("Security")
 public class SecurityController {
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/hello")
     public String Security() {
@@ -32,4 +40,22 @@ public class SecurityController {
     public String admin() {
         return "这是管理员才能登录";
     }
+
+
+    @GetMapping("/user")
+    public String user() {
+        ////userService.getUser().stream().forEach(e->{
+        ////    System.out.println(e);
+        ////});
+        //PasswordEncoder bc = new BCryptPasswordEncoder();
+        //UserInfo user = new UserInfo();
+        //user.setUserName("zxl");
+        //user.setPassWord(bc.encode("123456"));
+        //user.setRole("admin");
+        //userService.save(user);
+
+        return "你好，感谢使用";
+    }
+
+
 }

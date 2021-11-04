@@ -1,8 +1,7 @@
 package com.example.demotest.controller;
 
-import com.example.demotest.entity.User;
+import com.example.demotest.entity.UserInfo;
 import com.example.demotest.util.JwtUtil;
-import com.example.demotest.util.MessageUtils;
 import com.example.demotest.util.RedisUtil;
 import com.example.demotest.util.ResultUtil;
 import com.google.common.collect.Maps;
@@ -29,7 +28,7 @@ public class LoginController {
 
     @PostMapping("login")
     @ApiOperation("登录")
-    public ResponseEntity login(@RequestBody User user) {
+    public ResponseEntity login(@RequestBody UserInfo user) {
         //todo 用户查询
         int count =1;
         Assert.isTrue(count>0, "reg.account.error");

@@ -1,9 +1,7 @@
 package com.example.demotest.entity;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +15,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName(value = "user")
-public class User implements Serializable {
-
-   private Integer id;
+public class UserInfo implements Serializable {
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private int id;
 
     private String userName;
 

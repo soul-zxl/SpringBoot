@@ -1,22 +1,14 @@
 package com.example.demotest.util;
 
-import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
-import com.example.demotest.entity.User;
+import com.example.demotest.entity.UserInfo;
 import lombok.extern.log4j.Log4j2;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +34,7 @@ public class JwtUtil {
 
 
     //生成一个token
-    public static String createToken(User user) {
+    public static String createToken(UserInfo user) {
         HashMap<String, Object> map = new HashMap<>();
         //声明加密算法
         map.put("alg", "HS512");
