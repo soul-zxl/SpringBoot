@@ -39,7 +39,7 @@ public class MyUserDetails implements UserDetailsService {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" + user.getRole());
             list.add(grantedAuthority);
             //创建user  是UserDetails的实现类
-          userDetails = new User(user.getUserName(), user.getPassWord(), list);
+          userDetails = new User(user.getUserName(), user.getPassWord(),list);
         }
         return userDetails;
     }
